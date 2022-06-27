@@ -25,7 +25,7 @@ Our current leadership team includes:
 +----------------------+-----------------------------+--------------------+---------------+
 | José Miguel Guerrero | Rey Juan Carlos University  | jmguerreroh_       | Dev team      |
 +----------------------+-----------------------------+--------------------+---------------+
-| Manuel Fernández | University of Málaga            | MFernandezCarmona_ | Dev team      |
+| Manuel Fernández     | University of Málaga        | MFernandezCarmona_ | Dev team      |
 +----------------------+-----------------------------+--------------------+---------------+
 
 .. _fmrico: https://github.com/fmrico
