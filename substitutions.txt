@@ -13,7 +13,7 @@
 
 .. _project website: http://intelligentroboticslab.gsyc.urjc.es/mocap4ros2.github.io/
 
-.. |PP| replace:: https://github.com/IntelligentRoboticsLabs/mocap4ros2/blob/main
+.. |PP| replace:: https://github.com/MOCAP4ROS2-Project/mocap4ros2/blob/main
 
 .. _`ROS 2 binary packages`: https://index.ros.org/doc/ros2/Installation/
 

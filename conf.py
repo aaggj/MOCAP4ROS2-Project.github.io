@@ -150,7 +150,7 @@ html_context = {
 # html_theme_options = {}
 
 html_logo = 'images/mocap4ros2_logo.png'
-html_favicon = 'images/plansys2_48x48.png'
+html_favicon = 'images/mocap4ros2_48x48.png'
 
 numfig = True
 #numfig_secnum_depth = (2)
@@ -191,4 +191,4 @@ breathe_default_project = "SOF Project"
 breathe_default_members = ('members', 'undoc-members', 'content-only')
 
 extlinks = {'projectfile':
-    ('https://github.com/IntelligentRoboticsLabs/mocap4ros2/blob/main/%s', 'filepath ')}
+    ('https://github.com/MOCAP4ROS2-Project/mocap4ros2/blob/main/%s', 'filepath ')}

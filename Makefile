@@ -16,7 +16,7 @@ BUILDDIR      = _build
 
 DOC_TAG      ?= development
 RELEASE      ?= latest
-PUBLISHDIR    = /tmp/plansys2
+PUBLISHDIR    = /tmp/mocap4ros2
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -44,7 +44,7 @@ clean:
 # along with a README
 
 publish:
-	git clone --reference . https://github.com/IntelligentRoboticsLabs/mocap4ros2.github.io.git $(PUBLISHDIR)
+	git clone --reference . https://github.com/MOCAP4ROS2-Project/mocap4ros2.github.io.git $(PUBLISHDIR)
 	cd $(PUBLISHDIR) && \
 	git checkout gh-pages && \
 	git config user.email "fmrico@gmail.com" && \
