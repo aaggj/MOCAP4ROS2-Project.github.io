@@ -8,8 +8,8 @@
     <h1 align="center">
       <div>
         <div style="position: relative; padding-bottom: 0%; overflow: hidden; max-width: 100%; height: auto;">
-          <iframe width="450" height="300" src="https://www.youtube.com/watch?v=C8DI6OonV7Q" frameborder="1" allowfullscreen></iframe>
-          <iframe width="450" height="300" src="https://www.youtube.com/watch?v=Z5kRd4MLgFU" frameborder="1" allowfullscreen></iframe>
+          <iframe width="450" height="300" src="https://www.youtube.com/embed/C8DI6OonV7Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="450" height="300" src="https://www.youtube.com/embed/Z5kRd4MLgFU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </h1>
