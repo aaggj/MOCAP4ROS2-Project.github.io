@@ -6,7 +6,7 @@ About and Contact
 About
 *****
 
-MOCAP4ROS2 Project provides support for ROS2 integration with Vicon cameras (MOCAP systems based on vision) and Technaid TechMCS IMUs (MOCAP systems based on motion sensors).
+MOCAP4ROS2 Project provides support for ROS2 integration with Optitrack and Vicon cameras (MOCAP systems based on vision) and Technaid TechMCS IMUs (MOCAP systems based on motion sensors).
 
 
 We strive to create an open community and encourage new ROS users and experts alike to collaborate.
@@ -29,7 +29,7 @@ Our current leadership team includes:
 +----------------------+-----------------------------+--------------------+---------------+
 
 .. _fmrico: https://github.com/fmrico
-.. _jmguerreroh: https://github.com/_jmguerreroh
+.. _jmguerreroh: https://github.com/jmguerreroh
 .. _MFernandezCarmona: https://github.com/MFernandezCarmona
 
 Contact
