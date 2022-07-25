@@ -1,5 +1,5 @@
 # mocap4ros2.github.io
-http://intelligentroboticslab.gsyc.urjc.es/mocap4ros2.github.io
+https://mocap4ros2-project.github.io/
 
 This folder holds the source and configuration files used to generate the
 [MOCAP4ROS2 documentation](http://intelligentroboticslab.gsyc.urjc.es/mocap4ros2.github.io) web site.
