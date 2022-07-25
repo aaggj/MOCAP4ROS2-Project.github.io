@@ -47,7 +47,13 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Build and Install</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optitrack-system">Optitrack System</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-simulation-example">Running simulation example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vicon-system">Vicon System</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../design/index.html">MOCAP4ROS2 design</a></li>
@@ -90,8 +96,68 @@
              
   <section id="build-and-install">
 <span id="build-instructions"></span><h1>Build and Install<a class="headerlink" href="#build-and-install" title="Permalink to this headline"></a></h1>
-<section id="install">
-<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline"></a></h2>
+<section id="optitrack-system">
+<h2>Optitrack System<a class="headerlink" href="#optitrack-system" title="Permalink to this headline"></a></h2>
+<section id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h3>
+<ol class="arabic">
+<li><p>Install the ROS 2 binary packages as described in the official docs</p></li>
+<li><p>Create workspace</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/mocap_ws/src
+<span class="nb">cd</span> ~/mocap_ws/src
+</pre></div>
+</div>
+</li>
+<li><p>Download: the repo:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone --recursive https://github.com/MOCAP4ROS2-Project/mocap4ros2_optitrack.git
+</pre></div>
+</div>
+</li>
+<li><p>Resolve dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vcs import &lt; mocap4ros2_optitrack/dependency_repos.repos
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="simulation">
+<h3>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline"></a></h3>
+<ol class="arabic">
+<li><p>Install the Turtlebot 3 packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-&lt;ros2-distro&gt;-turtlebot3*
+</pre></div>
+</div>
+</li>
+<li><p>Download: the repo:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone --recursive https://github.com/MOCAP4ROS2-Project/mocap4ros2_gazebo.git
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="running-simulation-example">
+<h3>Running simulation example<a class="headerlink" href="#running-simulation-example" title="Permalink to this headline"></a></h3>
+<ol class="arabic">
+<li><p>Start a terminal in your GUI</p></li>
+<li><p>Set key environment variables:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/&lt;ros2-distro&gt;/setup.bash
+<span class="nb">export</span> <span class="nv">TURTLEBOT3_MODEL</span><span class="o">=</span>waffle
+<span class="nb">export</span> <span class="nv">GAZEBO_MODEL_PATH</span><span class="o">=</span><span class="nv">$GAZEBO_MODEL_PATH</span>:/opt/ros/&lt;ros2-distro&gt;/share/turtlebot3_gazebo/models
+<span class="nb">export</span> <span class="nv">GAZEBO_MODEL_PATH</span><span class="o">=</span><span class="nv">$GAZEBO_MODEL_PATH</span>:~/mocap_ws/install/gazebo_mocap_plugin/share/gazebo_mocap_plugin/models/
+</pre></div>
+</div>
+</li>
+<li><p>In the same terminal, run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 launch gazebo_mocap_plugin tb3_simulation_launch.py
+</pre></div>
+</div>
+</li>
+<li><p>Open gzclient in other terminal (to-do: still not work fine)</p></li>
+</ol>
+</section>
+</section>
+<section id="vicon-system">
+<h2>Vicon System<a class="headerlink" href="#vicon-system" title="Permalink to this headline"></a></h2>
 <p>To be done</p>
 </section>
 </section>
