@@ -12,7 +12,7 @@ MOCAP4ROS2 supports motion capture systems, most of which are commercial. Normal
 
 .. code-block:: console
 
-    mocap4ros2_ws$ cd src
+    mocap4ros2_ws$ mkdir src && cd src
     mocap4ros2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap4ros2_gazebo.git
     mocap4ros2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap.git
 
@@ -21,8 +21,8 @@ MOCAP4ROS2 supports motion capture systems, most of which are commercial. Normal
 
 .. code-block:: console
 
-    mocap4ros2_ws$ vcs import < mocap/dependency_repos.repos
-    mocap4ros2_ws$ rosdep install --from-paths src --ignore-src -r -y
+    mocap4ros2_ws/src$ vcs import < mocap/dependency_repos.repos
+    mocap4ros2_ws$ cd .. && rosdep install --from-paths src --ignore-src -r -y
 
 
 3. Build workspace
@@ -35,7 +35,8 @@ MOCAP4ROS2 supports motion capture systems, most of which are commercial. Normal
 4. Run the simulator with "a marker". Remember to use the "2D Pose Estimate" tool in Rviz2 (in toolbar) to set the robot position (it is around (X: -2, Y: -0.5, Yaw: 0.0) ).
 
 .. code-block:: console
-    
+
+    mocap4ros2_ws$ source install/setup.bash
     mocap4ros2_ws$ ros2 launch gazebo_mocap_plugin tb3_simulation_launch.py
 
 
@@ -51,14 +52,8 @@ MOCAP4ROS2 supports motion capture systems, most of which are commercial. Normal
 | |image1| + |image2| +
 +----------+----------+
 
-ru1n `gzclient` if you want to see the simulation.
-
-.. code-block:: console
-
-    mocap4ros2_ws$ gzclient
-
 .. note::
-    
+
     Remember to correctly set the ``GAZEBO_MODEL_PATH`` in order to found the gazebo models. 
 
     .. code-block:: console
@@ -67,21 +62,36 @@ ru1n `gzclient` if you want to see the simulation.
         export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
         export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/<your-user>/mocap4ros2_ws/install/gazebo_mocap_plugin/share/gazebo_mocap_plugin/models/
 
-1. Run RQT Gui and load the MocapControl plugin under "Plugins -> MOCAP4ROS2 -> Mocap Control" 
+
+Run `gzclient` if you want to see the simulation.
 
 .. code-block:: console
 
-    mocap4ros2_ws$ ros2 run rqt_gui rqt_gui --force-discover
+    mocap4ros2_ws$ gzclient
 
-.. |image3| image:: images/getting_started_5.png
-   :width: 400px
+.. |image3| image:: images/getting_started_4c.png
+   :width: 500px
    :align: middle
 
 +----------+
 | |image3| +
 +----------+
 
-1. Press the button "Start" in MocapControl and check that markers and rigid bodies being published:
+1. Run RQT Gui and load the MocapControl plugin under "Plugins -> MOCAP4ROS2 -> Mocap Control" 
+
+.. code-block:: console
+
+    mocap4ros2_ws$ ros2 run rqt_gui rqt_gui --force-discover
+
+.. |image4| image:: images/getting_started_5.png
+   :width: 400px
+   :align: middle
+
++----------+
+| |image4| +
++----------+
+
+6. Press the button "Start" in MocapControl and check that markers and rigid bodies being published:
 
 .. code-block:: console
 
@@ -101,12 +111,12 @@ ru1n `gzclient` if you want to see the simulation.
 
 Check in Rviz how a new frame, `base_footprint_gt` exists and is the real robot position. Move the robot and see how this TF track the robot position.
 
-.. |image4| image:: images/getting_started_7.png
+.. |image5| image:: images/getting_started_7.png
    :width: 500px
    :align: middle
 
 +----------+
-| |image4| +
+| |image5| +
 +----------+
 
 8. Press the button "Stop" in MocapControl to stop the gazebo mocap.
