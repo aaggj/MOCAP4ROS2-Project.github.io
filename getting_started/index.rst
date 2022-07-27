@@ -34,6 +34,10 @@ MOCAP4ROS2 supports motion capture systems, most of which are commercial. Normal
 
 4. Run the simulator with "a marker". Remember to use the "2D Pose Estimate" tool in Rviz2 (in toolbar) to set the robot position (it is around (X: -2, Y: -0.5, Yaw: 0.0) ).
 
+.. code-block:: console
+    
+    mocap4ros2_ws$ ros2 launch gazebo_mocap_plugin tb3_simulation_launch.py
+
 .. image:: images/getting_started_4a.png
     :width: 400px
     :align: center
@@ -41,12 +45,6 @@ MOCAP4ROS2 supports motion capture systems, most of which are commercial. Normal
 .. image:: images/getting_started_4b.png
     :width: 400px
     :align: center
-   
-
-.. code-block:: console
-    
-    mocap4ros2_ws$ ros2 launch gazebo_mocap_plugin tb3_simulation_launch.py
-
 
 run `gzclient` if you want to see the simulation.
 
