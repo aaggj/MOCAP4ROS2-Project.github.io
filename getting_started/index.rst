@@ -54,6 +54,12 @@ MOCAP4ROS2 supports motion capture systems, most of which are commercial. Normal
 
 .. note::
 
+    Ensure you have installed the Turtlebot3 packages to get the gazebo models
+    
+    .. code-block:: console
+    
+        sudo apt install ros-humble-turtlebot3*
+
     Remember to correctly set the ``GAZEBO_MODEL_PATH`` in order to found the gazebo models. 
 
     .. code-block:: console
