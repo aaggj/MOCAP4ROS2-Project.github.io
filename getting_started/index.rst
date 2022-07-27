@@ -94,7 +94,7 @@ Check in Rviz how a new frame, `base_footprint_gt` exists and is the real robot 
 
 .. image:: images/getting_started_7.png
     :width: 500px
-    :align: right
+    :align: center
 
 8. Press the button "Stop" in MocapControl to stop the gazebo mocap.
 
