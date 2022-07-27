@@ -34,6 +34,22 @@ MOCAP4ROS2 supports motion capture systems, most of which are commercial. Normal
 
 4. Run the simulator with "a marker". Remember to use the "2D Pose Estimate" tool in Rviz2 (in toolbar) to set the robot position (it is around (X: -2, Y: -0.5, Yaw: 0.0) ).
 
+.. note::
+
+    Ensure you have installed the Turtlebot3 packages to get the gazebo models
+    
+    .. code-block:: console
+    
+        sudo apt install ros-humble-turtlebot3*
+
+    Remember to correctly set the ``GAZEBO_MODEL_PATH`` in order to found the gazebo models. 
+
+    .. code-block:: console
+    
+        export TURTLEBOT3_MODEL=waffle
+        export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
+        export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/<your-user>/mocap4ros2_ws/install/gazebo_mocap_plugin/share/gazebo_mocap_plugin/models/
+
 .. code-block:: console
 
     mocap4ros2_ws$ source install/setup.bash
@@ -51,23 +67,6 @@ MOCAP4ROS2 supports motion capture systems, most of which are commercial. Normal
 +----------+----------+
 | |image1| + |image2| +
 +----------+----------+
-
-.. note::
-
-    Ensure you have installed the Turtlebot3 packages to get the gazebo models
-    
-    .. code-block:: console
-    
-        sudo apt install ros-humble-turtlebot3*
-
-    Remember to correctly set the ``GAZEBO_MODEL_PATH`` in order to found the gazebo models. 
-
-    .. code-block:: console
-    
-        export TURTLEBOT3_MODEL=waffle
-        export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
-        export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/<your-user>/mocap4ros2_ws/install/gazebo_mocap_plugin/share/gazebo_mocap_plugin/models/
-
 
 Run `gzclient` if you want to see the simulation.
 
