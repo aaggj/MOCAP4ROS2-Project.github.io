@@ -23,7 +23,7 @@ The project MOCAP4ROS2 is funded as a Focused Technical Project by ROSIN.
 
 To learn more about this project, such as related projects, and maintainers, see :ref:`about`.
 
-We hope that this software helps to include planning in more Robotics projects, offering simple and powerful software to 
+We hope that this software helps to include MOCAP in more Robotics projects, offering simple and powerful software to 
 generate intelligent behaviors for robots.
 
 We want to invite you to contribute to this `Open Source project in GitHub <https://github.com/MOCAP4ROS2-Project>`_ !!

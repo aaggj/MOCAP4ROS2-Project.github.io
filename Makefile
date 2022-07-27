@@ -10,7 +10,7 @@ endif
 # You can set these variables from the command line.
 SPHINXOPTS    ?= -q
 SPHINXBUILD   = sphinx-build
-SPHINXPROJ    = "ROS2 Planning System Documentation"
+SPHINXPROJ    = "ROS2 MOCAP SystemDocumentation"
 SOURCEDIR     = .
 BUILDDIR      = _build
 

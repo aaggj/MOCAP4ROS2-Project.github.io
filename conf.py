@@ -54,7 +54,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'ROS2 Planning System 2'
+project = u'ROS2 MOCAP System'
 copyright = u'2020'
 author = u'Various'
 

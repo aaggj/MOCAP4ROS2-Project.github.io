@@ -21,6 +21,7 @@ MOCAP4ROS2 supports motion capture systems, most of which are commercial. Normal
 
 .. code-block:: console
 
+    mocap4ros2_ws$ vcs import < mocap/dependency_repos.repos
     mocap4ros2_ws$ rosdep install --from-paths src --ignore-src -r -y
 
 
@@ -40,9 +41,11 @@ MOCAP4ROS2 supports motion capture systems, most of which are commercial. Normal
     :width: 400px
     :align: right
 
-```
-mocap4ros2_ws$ ros2 launch gazebo_mocap_plugin tb3_simulation_launch.py
-```
+
+.. code-block:: console
+    
+    mocap4ros2_ws$ ros2 launch gazebo_mocap_plugin tb3_simulation_launch.py
+
 
 run `gzclient` if you want to see the simulation.
 
@@ -52,6 +55,12 @@ run `gzclient` if you want to see the simulation.
 
 
 **NOTE:** Remember to correctly set the ``GAZEBO_MODEL_PATH`` in order to found the gazebo models. For example: ``/opt/ros/humble/share/turtlebot3_gazebo/models:/home/<your user>/mocap4ros2_ws/install/gazebo_mocap_plugin/share/gazebo_mocap_plugin/models``
+
+.. code-block:: console
+    
+    export TURTLEBOT3_MODEL=waffle
+    export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
+    export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/<your-user>/mocap4ros2_ws/install/gazebo_mocap_plugin/share/gazebo_mocap_plugin/models/
 
 5. Run RQT Gui and load the MocapControl plugin under "Plugins -> MOCAP4ROS2 -> Mocap Control" 
 
