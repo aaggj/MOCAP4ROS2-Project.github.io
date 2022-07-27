@@ -37,6 +37,7 @@ MOCAP4ROS2 supports motion capture systems, most of which are commercial. Normal
 .. image:: images/getting_started_4a.png
     :width: 400px
     :align: left
+    
 .. image:: images/getting_started_4b.png
     :width: 400px
     :align: right
@@ -54,7 +55,7 @@ run `gzclient` if you want to see the simulation.
     mocap4ros2_ws$ gzclient
 
 
-**NOTE:** Remember to correctly set the ``GAZEBO_MODEL_PATH`` in order to found the gazebo models. For example: ``/opt/ros/humble/share/turtlebot3_gazebo/models:/home/<your user>/mocap4ros2_ws/install/gazebo_mocap_plugin/share/gazebo_mocap_plugin/models``
+**NOTE:** Remember to correctly set the ``GAZEBO_MODEL_PATH`` in order to found the gazebo models. 
 
 .. code-block:: console
     
