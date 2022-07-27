@@ -57,14 +57,15 @@ ru1n `gzclient` if you want to see the simulation.
 
     mocap4ros2_ws$ gzclient
 
-
-**NOTE:** Remember to correctly set the ``GAZEBO_MODEL_PATH`` in order to found the gazebo models. 
-
-.. code-block:: console
+.. note::
     
-    export TURTLEBOT3_MODEL=waffle
-    export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
-    export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/<your-user>/mocap4ros2_ws/install/gazebo_mocap_plugin/share/gazebo_mocap_plugin/models/
+    Remember to correctly set the ``GAZEBO_MODEL_PATH`` in order to found the gazebo models. 
+
+    .. code-block:: console
+    
+        export TURTLEBOT3_MODEL=waffle
+        export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
+        export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/<your-user>/mocap4ros2_ws/install/gazebo_mocap_plugin/share/gazebo_mocap_plugin/models/
 
 1. Run RQT Gui and load the MocapControl plugin under "Plugins -> MOCAP4ROS2 -> Mocap Control" 
 
@@ -73,7 +74,7 @@ ru1n `gzclient` if you want to see the simulation.
     mocap4ros2_ws$ ros2 run rqt_gui rqt_gui --force-discover
 
 .. |image3| image:: images/getting_started_5.png
-   :width: 500px
+   :width: 400px
    :align: middle
 
 +----------+
