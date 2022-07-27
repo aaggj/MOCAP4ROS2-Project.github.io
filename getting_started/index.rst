@@ -41,13 +41,15 @@ MOCAP4ROS2 supports motion capture systems, most of which are commercial. Normal
 
 .. |image1| image:: images/getting_started_4a.png
    :width: 400px
+   :align: middle
 
 .. |image2| image:: images/getting_started_4b.png
    :width: 400px
+   :align: middle
 
-+-----------+------------+
-| |image1|  +  |image2|  +
-+-----------+------------+
++----------+----------+
+| |image1| + |image2| +
++----------+----------+
 
 ru1n `gzclient` if you want to see the simulation.
 
@@ -70,12 +72,15 @@ ru1n `gzclient` if you want to see the simulation.
 
     mocap4ros2_ws$ ros2 run rqt_gui rqt_gui --force-discover
 
+.. |image3| image:: images/getting_started_5.png
+   :width: 500px
+   :align: middle
 
-.. image:: images/getting_started_5.png
-    :width: 400px
-    :align: center
++----------+
+| |image3| +
++----------+
 
-6. Press the button "Start" in MocapControl and check that markers and rigid bodies being published:
+1. Press the button "Start" in MocapControl and check that markers and rigid bodies being published:
 
 .. code-block:: console
 
@@ -95,9 +100,13 @@ ru1n `gzclient` if you want to see the simulation.
 
 Check in Rviz how a new frame, `base_footprint_gt` exists and is the real robot position. Move the robot and see how this TF track the robot position.
 
-.. image:: images/getting_started_7.png
-    :width: 500px
-    :align: center
+.. |image4| image:: images/getting_started_7.png
+   :width: 500px
+   :align: middle
+
++----------+
+| |image4| +
++----------+
 
 8. Press the button "Stop" in MocapControl to stop the gazebo mocap.
 
