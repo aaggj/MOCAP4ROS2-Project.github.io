@@ -36,12 +36,12 @@ MOCAP4ROS2 supports motion capture systems, most of which are commercial. Normal
 
 .. image:: images/getting_started_4a.png
     :width: 400px
-    :align: left
-    
+    :align: center
+
 .. image:: images/getting_started_4b.png
     :width: 400px
-    :align: right
-
+    :align: center
+   
 
 .. code-block:: console
     
