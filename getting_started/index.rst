@@ -96,7 +96,7 @@ Run `gzclient` if you want to see the simulation.
 | |image4| +
 +----------+
 
-6. Press the button "Start" in MocapControl and check that markers and rigid bodies being published:
+6. Press the button "Start" in MocapControl and check that markers and rigid bodies are being published:
 
 .. code-block:: console
 
