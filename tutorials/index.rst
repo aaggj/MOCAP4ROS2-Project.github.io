@@ -17,6 +17,7 @@ Optitrack system
 `mocap_optitrack_driver/config/mocap_optritrack_driver_params.yaml`
 
 .. code-block:: yaml
+ 
     mocap_optitrack_driver_node:
         ros__parameters:
           connection_type: "Unicast" # Unicast / Multicast

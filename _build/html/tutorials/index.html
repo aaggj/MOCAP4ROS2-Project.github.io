@@ -9,6 +9,9 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/mocap4ros2_48x48.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
@@ -30,15 +33,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: orange" >
-            <a href="../index.html" class="icon icon-home"> ROS2 MOCAP System
-            <img src="../_static/mocap4ros2_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ROS2 MOCAP System
+              <img src="../_static/mocap4ros2_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 latest
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -47,11 +54,15 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../build_instructions/index.html">Build and Install</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../build_instructions/index.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../build_instructions/index.html#optitrack-system">Optitrack System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../build_instructions/index.html#vicon-system">Vicon System</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../design/index.html">MOCAP4ROS2 design</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#optitrack-system">Optitrack system</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../about/index.html">About and Contact</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../about/index.html#id1">About</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../about/index.html#contact">Contact</a></li>
@@ -78,8 +89,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Tutorials</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tutorials</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -90,7 +101,61 @@
              
   <section id="tutorials">
 <span id="id1"></span><h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline"></a></h1>
-<p>To be done</p>
+<section id="optitrack-system">
+<h2>Optitrack system<a class="headerlink" href="#optitrack-system" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>Start the motive software</p></li>
+<li><p>Connect to the same network of mocap system</p></li>
+<li><p>Copy the server address of the mocap system and your ip address then paste it in the following file:</p></li>
+</ol>
+<p><cite>mocap_optitrack_driver/config/mocap_optritrack_driver_params.yaml</cite></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">mocap_optitrack_driver_node</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ros__parameters</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">connection_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Unicast&quot;</span><span class="w"> </span><span class="c1"># Unicast / Multicast</span><span class="w"></span>
+<span class="w">      </span><span class="nt">server_address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;198.17.0.120&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">local_address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;198.17.0.48&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">multicast_address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;239.255.42.99&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">server_command_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1510</span><span class="w"></span>
+<span class="w">      </span><span class="nt">server_data_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1511</span><span class="w"></span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Launch mocap otitrack driver</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 launch mocap_optitrack_driver optitrack2.launch.py</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Activate the mocap optitrack driver node</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 lifecycle set /mocap_optitrack_driver_node activate</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Create markers in Rviz</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws$ source install/setup.bash</span>
+<span class="go">ros2 run mocap_marker_viz mocap_marker_viz</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Run Rviz2</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">rviz2 rviz2</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td rowspan="2"><p><a class="reference internal" href="../_images/RigidBody.png"><img alt="image1" class="align-middle" src="../_images/RigidBody.png" style="width: 500px;" /></a></p></td>
+</tr>
+<tr class="row-even"></tr>
+</tbody>
+</table>
+</section>
 </section>
 
 

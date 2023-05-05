@@ -9,6 +9,9 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/mocap4ros2_48x48.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
@@ -30,15 +33,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: orange" >
-            <a href="../index.html" class="icon icon-home"> ROS2 MOCAP System
-            <img src="../_static/mocap4ros2_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ROS2 MOCAP System
+              <img src="../_static/mocap4ros2_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 latest
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -47,17 +54,15 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Build and Install</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#optitrack-system">Optitrack System</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#simulation">Simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#running-simulation-example">Running simulation example</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#optitrack-system">Optitrack System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#vicon-system">Vicon System</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../design/index.html">MOCAP4ROS2 design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/index.html#optitrack-system">Optitrack system</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../about/index.html">About and Contact</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../about/index.html#id1">About</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../about/index.html#contact">Contact</a></li>
@@ -84,8 +89,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Build and Install</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Build and Install</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -98,63 +103,35 @@
 <span id="build-instructions"></span><h1>Build and Install<a class="headerlink" href="#build-and-install" title="Permalink to this headline"></a></h1>
 <section id="optitrack-system">
 <h2>Optitrack System<a class="headerlink" href="#optitrack-system" title="Permalink to this headline"></a></h2>
-<section id="installation">
-<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h3>
-<ol class="arabic">
-<li><p>Install the ROS 2 binary packages as described in the official docs</p></li>
-<li><p>Create workspace</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/mocap_ws/src
-<span class="nb">cd</span> ~/mocap_ws/src
+<p>If you want to test the optitrack system, you should follow the following steps:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Create the src directory if you have not created it before</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws$ mkdir src &amp;&amp; cd src</span>
 </pre></div>
 </div>
-</li>
-<li><p>Download: the repo:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone --recursive https://github.com/MOCAP4ROS2-Project/mocap4ros2_optitrack.git
-</pre></div>
 </div>
-</li>
-<li><p>Resolve dependencies:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vcs import &lt; mocap4ros2_optitrack/dependency_repos.repos
-</pre></div>
-</div>
-</li>
+<ol class="arabic simple">
+<li><p>Clone the following repositories</p></li>
 </ol>
-</section>
-<section id="simulation">
-<h3>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline"></a></h3>
-<ol class="arabic">
-<li><p>Install the Turtlebot 3 packages:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-&lt;ros2-distro&gt;-turtlebot3*
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap4ros2_optitrack.git</span>
+<span class="go">mocap4ros2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap.git</span>
+<span class="go">mocap4ros2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap_msgs.git</span>
 </pre></div>
 </div>
-</li>
-<li><p>Download: the repo:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone --recursive https://github.com/MOCAP4ROS2-Project/mocap4ros2_gazebo.git
-</pre></div>
-</div>
-</li>
+<ol class="arabic simple" start="2">
+<li><p>Install dependencies</p></li>
 </ol>
-</section>
-<section id="running-simulation-example">
-<h3>Running simulation example<a class="headerlink" href="#running-simulation-example" title="Permalink to this headline"></a></h3>
-<ol class="arabic">
-<li><p>Start a terminal in your GUI</p></li>
-<li><p>Set key environment variables:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/&lt;ros2-distro&gt;/setup.bash
-<span class="nb">export</span> <span class="nv">TURTLEBOT3_MODEL</span><span class="o">=</span>waffle
-<span class="nb">export</span> <span class="nv">GAZEBO_MODEL_PATH</span><span class="o">=</span><span class="nv">$GAZEBO_MODEL_PATH</span>:/opt/ros/&lt;ros2-distro&gt;/share/turtlebot3_gazebo/models
-<span class="nb">export</span> <span class="nv">GAZEBO_MODEL_PATH</span><span class="o">=</span><span class="nv">$GAZEBO_MODEL_PATH</span>:~/mocap_ws/install/gazebo_mocap_plugin/share/gazebo_mocap_plugin/models/
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws/src$ vcs import &lt; mocap/dependency_repos.repos</span>
+<span class="go">mocap4ros2_ws$ cd .. &amp;&amp; rosdep install --from-paths src --ignore-src -r -y</span>
 </pre></div>
 </div>
-</li>
-<li><p>In the same terminal, run</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 launch gazebo_mocap_plugin tb3_simulation_launch.py
-</pre></div>
-</div>
-</li>
-<li><p>Open gzclient in other terminal (to-do: still not work fine)</p></li>
+<ol class="arabic simple" start="3">
+<li><p>Build workspace</p></li>
 </ol>
-</section>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws$ colcon build --symlink-install</span>
+</pre></div>
+</div>
 </section>
 <section id="vicon-system">
 <h2>Vicon System<a class="headerlink" href="#vicon-system" title="Permalink to this headline"></a></h2>
