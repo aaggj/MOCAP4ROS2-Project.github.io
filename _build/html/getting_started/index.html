@@ -9,6 +9,9 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/mocap4ros2_48x48.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
@@ -30,15 +33,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: orange" >
-            <a href="../index.html" class="icon icon-home"> ROS2 MOCAP System
-            <img src="../_static/mocap4ros2_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ROS2 MOCAP System
+              <img src="../_static/mocap4ros2_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 latest
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -47,17 +54,15 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../build_instructions/index.html">Build and Install</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../build_instructions/index.html#optitrack-system">Optitrack System</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../build_instructions/index.html#installation">Installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../build_instructions/index.html#simulation">Simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../build_instructions/index.html#running-simulation-example">Running simulation example</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../build_instructions/index.html#optitrack-system">Optitrack System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../build_instructions/index.html#vicon-system">Vicon System</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../design/index.html">MOCAP4ROS2 design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/index.html#optitrack-system">Optitrack system</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../about/index.html">About and Contact</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../about/index.html#id1">About</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../about/index.html#contact">Contact</a></li>
@@ -84,8 +89,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Getting Started</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting Started</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -101,7 +106,7 @@
 <ol class="arabic simple">
 <li><p>Clone in your workspace the following repositories:</p></li>
 </ol>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws$ cd src</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws$ mkdir src &amp;&amp; cd src</span>
 <span class="go">mocap4ros2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap4ros2_gazebo.git</span>
 <span class="go">mocap4ros2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap.git</span>
 </pre></div>
@@ -109,7 +114,8 @@
 <ol class="arabic simple" start="2">
 <li><p>Install dependencies</p></li>
 </ol>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws$ rosdep install --from-paths src --ignore-src -r -y</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws/src$ vcs import &lt; mocap/dependency_repos.repos</span>
+<span class="go">mocap4ros2_ws$ cd .. &amp;&amp; rosdep install --from-paths src --ignore-src -r -y</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -121,25 +127,67 @@
 <ol class="arabic simple" start="4">
 <li><p>Run the simulator with “a marker”. Remember to use the “2D Pose Estimate” tool in Rviz2 (in toolbar) to set the robot position (it is around (X: -2, Y: -0.5, Yaw: 0.0) ).</p></li>
 </ol>
-<a class="reference internal image-reference" href="../_images/getting_started_4a.png"><img alt="../_images/getting_started_4a.png" class="align-left" src="../_images/getting_started_4a.png" style="width: 400px;" /></a>
-<a class="reference internal image-reference" href="../_images/getting_started_4b.png"><img alt="../_images/getting_started_4b.png" class="align-right" src="../_images/getting_started_4b.png" style="width: 400px;" /></a>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">mocap4ros2_ws$</span> <span class="pre">ros2</span> <span class="pre">launch</span> <span class="pre">gazebo_mocap_plugin</span> <span class="pre">tb3_simulation_launch.py</span>
-<span class="pre">`</span></code></p>
-<p>run <cite>gzclient</cite> if you want to see the simulation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ensure you have installed the Turtlebot3 packages to get the gazebo models</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt install ros-humble-turtlebot3*</span>
+</pre></div>
+</div>
+<p>Remember to correctly set the <code class="docutils literal notranslate"><span class="pre">GAZEBO_MODEL_PATH</span></code> in order to found the gazebo models.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export TURTLEBOT3_MODEL=waffle</span>
+<span class="go">export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models</span>
+<span class="go">export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/&lt;your-user&gt;/mocap4ros2_ws/install/gazebo_mocap_plugin/share/gazebo_mocap_plugin/models/</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws$ source install/setup.bash</span>
+<span class="go">mocap4ros2_ws$ ros2 launch gazebo_mocap_plugin tb3_simulation_launch.py</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td rowspan="2"><p><a class="reference internal" href="../_images/getting_started_4a.png"><img alt="image1" class="align-middle" src="../_images/getting_started_4a.png" style="width: 400px;" /></a></p></td>
+<td rowspan="2"><p><a class="reference internal" href="../_images/getting_started_4b.png"><img alt="image2" class="align-middle" src="../_images/getting_started_4b.png" style="width: 400px;" /></a></p></td>
+</tr>
+<tr class="row-even"></tr>
+</tbody>
+</table>
+<p>Run <cite>gzclient</cite> if you want to see the simulation.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws$ gzclient</span>
 </pre></div>
 </div>
-<p><strong>NOTE:</strong> Remember to correctly set the <code class="docutils literal notranslate"><span class="pre">GAZEBO_MODEL_PATH</span></code> in order to found the gazebo models. For example: <code class="docutils literal notranslate"><span class="pre">/opt/ros/humble/share/turtlebot3_gazebo/models:/home/&lt;your</span> <span class="pre">user&gt;/mocap4ros2_ws/install/gazebo_mocap_plugin/share/gazebo_mocap_plugin/models</span></code></p>
-<ol class="arabic simple" start="5">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td rowspan="2"><p><a class="reference internal" href="../_images/getting_started_4c.png"><img alt="image3" class="align-middle" src="../_images/getting_started_4c.png" style="width: 500px;" /></a></p></td>
+</tr>
+<tr class="row-even"></tr>
+</tbody>
+</table>
+<ol class="arabic simple">
 <li><p>Run RQT Gui and load the MocapControl plugin under “Plugins -&gt; MOCAP4ROS2 -&gt; Mocap Control”</p></li>
 </ol>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws$ ros2 run rqt_gui rqt_gui --force-discover</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/getting_started_5.png"><img alt="../_images/getting_started_5.png" class="align-center" src="../_images/getting_started_5.png" style="width: 400px;" /></a>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td rowspan="2"><p><a class="reference internal" href="../_images/getting_started_5.png"><img alt="image4" class="align-middle" src="../_images/getting_started_5.png" style="width: 400px;" /></a></p></td>
+</tr>
+<tr class="row-even"></tr>
+</tbody>
+</table>
 <ol class="arabic simple" start="6">
-<li><p>Press the button “Start” in MocapControl and check that markers and rigid bodies being published:</p></li>
+<li><p>Press the button “Start” in MocapControl and check that markers and rigid bodies are being published:</p></li>
 </ol>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 topic echo /markers</span>
 </pre></div>
@@ -154,7 +202,16 @@
 </pre></div>
 </div>
 <p>Check in Rviz how a new frame, <cite>base_footprint_gt</cite> exists and is the real robot position. Move the robot and see how this TF track the robot position.</p>
-<a class="reference internal image-reference" href="../_images/getting_started_7.png"><img alt="../_images/getting_started_7.png" class="align-right" src="../_images/getting_started_7.png" style="width: 500px;" /></a>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td rowspan="2"><p><a class="reference internal" href="../_images/getting_started_7.png"><img alt="image5" class="align-middle" src="../_images/getting_started_7.png" style="width: 500px;" /></a></p></td>
+</tr>
+<tr class="row-even"></tr>
+</tbody>
+</table>
 <ol class="arabic simple" start="8">
 <li><p>Press the button “Stop” in MocapControl to stop the gazebo mocap.</p></li>
 </ol>
