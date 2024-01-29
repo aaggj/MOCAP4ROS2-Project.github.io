@@ -2,7 +2,7 @@
 https://mocap4ros2-project.github.io/
 
 This folder holds the source and configuration files used to generate the
-[MOCAP4ROS2 documentation](http://intelligentroboticslab.gsyc.urjc.es/mocap4ros2.github.io) web site.
+[MOCAP4ROS2 documentation]([http://intelligentroboticslab.gsyc.urjc.es/mocap4ros2.github.io](https://mocap4ros2-project.github.io/)) web site.
 
 Dependencies for Build: 
 * [Sphinx](https://www.sphinx-doc.org/en/master/usage/installation.html)
