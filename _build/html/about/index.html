@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About and Contact &mdash; ROS2 MOCAP System 1.0.0 documentation</title>
@@ -13,10 +13,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -53,11 +54,16 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../build_instructions/index.html">Build and Install</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../build_instructions/index.html#optitrack-system">Optitrack System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../build_instructions/index.html#optitrack-system">OptiTrack System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../build_instructions/index.html#vicon-system">Vicon System</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../design/index.html">MOCAP4ROS2 design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design/index.html">Mocap4r2 design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../design/index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/index.html#key-design-components">Key Design Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/index.html#layer-interactions">Layer Interactions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/index.html#optitrack-system">Optitrack system</a></li>
 </ul>
@@ -99,23 +105,19 @@
            <div itemprop="articleBody">
              
   <section id="about-and-contact">
-<span id="about"></span><h1>About and Contact<a class="headerlink" href="#about-and-contact" title="Permalink to this headline"></a></h1>
+<span id="about"></span><h1>About and Contact<a class="headerlink" href="#about-and-contact" title="Link to this heading"></a></h1>
 <section id="id1">
-<h2>About<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h2>
+<h2>About<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <p>MOCAP4ROS2 Project provides support for ROS2 integration with Optitrack and Vicon cameras (MOCAP systems based on vision) and Technaid TechMCS IMUs (MOCAP systems based on motion sensors).</p>
+<p>This project has received funding from the European Union’s Horizon 2020
+research and innovation programme under grant agreement no. 732287.</p>
 <p>We strive to create an open community and encourage new ROS users and experts alike to collaborate.
 However, that can’t happen without your issues, pull requests, and support.
 MOCAP4ROS2, like all open-source projects, is kept going by a dedicated group of developers, maintainers, users, and collaborators.
 We would like to thank here our current and past contributors and maintainers.</p>
-<p>If you or your organization are interested in sponsoring PlanSys2 or any work around it, please reach out to the current project lead.</p>
+<p>If you or your organization are interested in sponsoring MOCAP4ROS2 or any work around it, please reach out to the current project lead.</p>
 <p>Our current leadership team includes:</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 26%" />
-<col style="width: 34%" />
-<col style="width: 23%" />
-<col style="width: 17%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Organization</p></th>
@@ -134,7 +136,12 @@ We would like to thank here our current and past contributors and maintainers.</
 <td><p><a class="reference external" href="https://github.com/jmguerreroh">jmguerreroh</a></p></td>
 <td><p>Dev team</p></td>
 </tr>
-<tr class="row-even"><td><p>Manuel Fernández</p></td>
+<tr class="row-even"><td><p>Alberto García</p></td>
+<td><p>Rey Juan Carlos University</p></td>
+<td><p><a class="reference external" href="https://github.com/aaggj">aaggj</a></p></td>
+<td><p>Dev team</p></td>
+</tr>
+<tr class="row-odd"><td><p>Manuel Fernández</p></td>
 <td><p>University of Málaga</p></td>
 <td><p><a class="reference external" href="https://github.com/MFernandezCarmona">MFernandezCarmona</a></p></td>
 <td><p>Dev team</p></td>
@@ -143,7 +150,7 @@ We would like to thank here our current and past contributors and maintainers.</
 </table>
 </section>
 <section id="contact">
-<h2>Contact<a class="headerlink" href="#contact" title="Permalink to this headline"></a></h2>
+<h2>Contact<a class="headerlink" href="#contact" title="Link to this heading"></a></h2>
 <p>If you are interested in contacting someone about MOCAP, ROS 2, or related projects, please email the project leader.
 We intentionally make our emails easy to find.
 If your inquiry relates to bugs or open-source feature requests, consider posting a ticket on our GitHub project.

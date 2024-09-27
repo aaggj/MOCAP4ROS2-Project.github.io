@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MOCAP4ROS2 &mdash; ROS2 MOCAP System 1.0.0 documentation</title>
@@ -13,10 +13,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -53,11 +54,16 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="getting_started/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build_instructions/index.html">Build and Install</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="build_instructions/index.html#optitrack-system">Optitrack System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build_instructions/index.html#optitrack-system">OptiTrack System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="build_instructions/index.html#vicon-system">Vicon System</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="design/index.html">MOCAP4ROS2 design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design/index.html">Mocap4r2 design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="design/index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design/index.html#key-design-components">Key Design Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design/index.html#layer-interactions">Layer Interactions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/index.html#optitrack-system">Optitrack system</a></li>
 </ul>
@@ -99,7 +105,7 @@
            <div itemprop="articleBody">
              
   <section id="lpn">
-<span id="documentation-home"></span><h1>MOCAP4ROS2<a class="headerlink" href="#lpn" title="Permalink to this headline"></a></h1>
+<span id="documentation-home"></span><h1>MOCAP4ROS2<a class="headerlink" href="#lpn" title="Link to this heading"></a></h1>
 <h1 align="center">
   <div>
     <div style="position: relative; padding-bottom: 0%; overflow: hidden; max-width: 100%; height: auto;">
@@ -108,9 +114,16 @@
     </div>
   </div>
 </h1><section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
-<p>MOCAP4ROS2 is a project his project provides support for ROS2 integration with Vicon cameras (MOCAP systems based on vision) and Technaid TechMCS IMUs (MOCAP systems based on motion sensors).</p>
-<p>The project MOCAP4ROS2 is funded as a Focused Technical Project by ROSIN.</p>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>MOCAP4ROS2 is a Focused Technical Project funded initially by ROSIN. Its goal is to standardize the Motion Capture (mocap in short) Systems by providing standard interfaces that any mocap driver should respect when publishing its data and any mocap application could expect. MOCAP4ROS2 also provides tools to monitorize and control one or many mocap system running at the same time.</p>
+<p>MOCAP4ROS2 features:
+* Support for major mocap vendors: <a class="reference external" href="https://github.com/MOCAP4ROS2-Project/mocap4ros2_vicon">Vicon</a>, <a class="reference external" href="https://github.com/MOCAP4ROS2-Project/mocap4ros2_optitrack">Optitrack</a>, and <a class="reference external" href="https://github.com/MOCAP4ROS2-Project/mocap4ros2_qualisys">Qualisys</a>.
+* <a class="reference external" href="https://github.com/MOCAP4ROS2-Project/mocap4r2_msgs">Standard interfaces</a> for Motion capture data: Markers and RigidBodies
+* <a class="reference external" href="https://github.com/MOCAP4ROS2-Project/mocap4r2/tree/rolling/mocap4r2_control/mocap4r2_control_msgs">Interfaces for control</a> mocap systems.
+* ROS 2 Tools for controlling mocap sytems: <a class="reference external" href="https://github.com/MOCAP4ROS2-Project/mocap4r2/tree/rolling/mocap4r2_control/rqt_mocap4r2_control">RQT-based GUI</a> and <a class="reference external" href="https://github.com/MOCAP4ROS2-Project/mocap4r2/tree/rolling/mocap4r2cli">mocap4r2cli</a>, a MOCAP4ROS2 extension for <a class="reference external" href="https://github.com/ros2/ros2cli">roscli</a>.
+* <cite>App for visualizing &lt;https://github.com/MOCAP4ROS2-Project/mocap4r2/tree/rolling/mocap4r2_marker_viz&gt;`_</cite> mocap data as visual markers.
+* <cite>App for Groud Truth &lt;https://github.com/MOCAP4ROS2-Project/mocap4r2/tree/rolling/mocap4r2_robot_gt&gt;`_</cite> data for robotic experiments.
+* A <a class="reference external" href="https://github.com/MOCAP4ROS2-Project/mocap4r2/tree/rolling/mocap4r2_dummy_driver">Dummy mocap system</a> for helping developers to create tools and apps.</p>
 <p>To learn more about this project, such as related projects, and maintainers, see <a class="reference internal" href="about/index.html#about"><span class="std std-ref">About and Contact</span></a>.</p>
 <p>We hope that this software helps to include MOCAP in more Robotics projects, offering simple and powerful software to
 generate intelligent behaviors for robots.</p>

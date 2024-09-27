@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tutorials &mdash; ROS2 MOCAP System 1.0.0 documentation</title>
@@ -13,15 +13,16 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="About and Contact" href="../about/index.html" />
-    <link rel="prev" title="MOCAP4ROS2 design" href="../design/index.html" />
+    <link rel="prev" title="Mocap4r2 design" href="../design/index.html" />
 
 <link rel="stylesheet" href="../_static/tcs_theme.css" type="text/css" />
 
@@ -58,7 +59,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../build_instructions/index.html#vicon-system">Vicon System</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../design/index.html">MOCAP4ROS2 design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design/index.html">Mocap4r2 design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../design/index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/index.html#key-design-components">Key Design Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/index.html#layer-interactions">Layer Interactions</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#optitrack-system">Optitrack system</a></li>
 </ul>
@@ -100,24 +106,24 @@
            <div itemprop="articleBody">
              
   <section id="tutorials">
-<span id="id1"></span><h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline"></a></h1>
+<span id="id1"></span><h1>Tutorials<a class="headerlink" href="#tutorials" title="Link to this heading"></a></h1>
 <section id="optitrack-system">
-<h2>Optitrack system<a class="headerlink" href="#optitrack-system" title="Permalink to this headline"></a></h2>
+<h2>Optitrack system<a class="headerlink" href="#optitrack-system" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Start the motive software</p></li>
 <li><p>Connect to the same network of mocap system</p></li>
 <li><p>Copy the server address of the mocap system and your ip address then paste it in the following file:</p></li>
 </ol>
 <p><cite>mocap_optitrack_driver/config/mocap_optritrack_driver_params.yaml</cite></p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">mocap_optitrack_driver_node</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ros__parameters</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">connection_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Unicast&quot;</span><span class="w"> </span><span class="c1"># Unicast / Multicast</span><span class="w"></span>
-<span class="w">      </span><span class="nt">server_address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;198.17.0.120&quot;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">local_address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;198.17.0.48&quot;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">multicast_address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;239.255.42.99&quot;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">server_command_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1510</span><span class="w"></span>
-<span class="w">      </span><span class="nt">server_data_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1511</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">mocap_optitrack_driver_node</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">connection_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Unicast&quot;</span><span class="w"> </span><span class="c1"># Unicast / Multicast</span>
+<span class="w">      </span><span class="nt">server_address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;198.17.0.120&quot;</span>
+<span class="w">      </span><span class="nt">local_address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;198.17.0.48&quot;</span>
+<span class="w">      </span><span class="nt">multicast_address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;239.255.42.99&quot;</span>
+<span class="w">      </span><span class="nt">server_command_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1510</span>
+<span class="w">      </span><span class="nt">server_data_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1511</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">....</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
@@ -146,9 +152,6 @@
 </pre></div>
 </div>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td rowspan="2"><p><a class="reference internal" href="../_images/RigidBody.png"><img alt="image1" class="align-middle" src="../_images/RigidBody.png" style="width: 500px;" /></a></p></td>
 </tr>

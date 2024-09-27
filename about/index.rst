@@ -8,28 +8,33 @@ About
 
 MOCAP4ROS2 Project provides support for ROS2 integration with Optitrack and Vicon cameras (MOCAP systems based on vision) and Technaid TechMCS IMUs (MOCAP systems based on motion sensors).
 
+This project has received funding from the European Union’s Horizon 2020  
+research and innovation programme under grant agreement no. 732287.
+
 
 We strive to create an open community and encourage new ROS users and experts alike to collaborate.
 However, that can't happen without your issues, pull requests, and support.
 MOCAP4ROS2, like all open-source projects, is kept going by a dedicated group of developers, maintainers, users, and collaborators.
 We would like to thank here our current and past contributors and maintainers.
 
-If you or your organization are interested in sponsoring PlanSys2 or any work around it, please reach out to the current project lead.
+If you or your organization are interested in sponsoring MOCAP4ROS2 or any work around it, please reach out to the current project lead.
 
 Our current leadership team includes:
 
-+----------------------+-----------------------------+--------------------+---------------+
-| Name                 | Organization                | GitHub ID          | Current Role  |
-+======================+=============================+====================+===============+
-| Francisco Martín     | Rey Juan Carlos University  | fmrico_            | Project Lead  |
-+----------------------+-----------------------------+--------------------+---------------+
-| José Miguel Guerrero | Rey Juan Carlos University  | jmguerreroh_       | Dev team      |
-+----------------------+-----------------------------+--------------------+---------------+
-| Manuel Fernández     | University of Málaga        | MFernandezCarmona_ | Dev team      |
-+----------------------+-----------------------------+--------------------+---------------+
-
++----------------------+----------------------------+--------------------+--------------+
+| Name                 | Organization               | GitHub ID          | Current Role |
++======================+============================+====================+==============+
+| Francisco Martín     | Rey Juan Carlos University | fmrico_            | Project Lead |
++----------------------+----------------------------+--------------------+--------------+
+| José Miguel Guerrero | Rey Juan Carlos University | jmguerreroh_       | Dev team     |
++----------------------+----------------------------+--------------------+--------------+
+| Alberto García       | Rey Juan Carlos University | aaggj_             | Dev team     |
++----------------------+----------------------------+--------------------+--------------+
+| Manuel Fernández     | University of Málaga       | MFernandezCarmona_ | Dev team     |
++----------------------+----------------------------+--------------------+--------------+
 .. _fmrico: https://github.com/fmrico
 .. _jmguerreroh: https://github.com/jmguerreroh
+.. _aaggj: https://github.com/aaggj
 .. _MFernandezCarmona: https://github.com/MFernandezCarmona
 
 Contact

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MOCAP4ROS2 design &mdash; ROS2 MOCAP System 1.0.0 documentation</title>
+  <title>Mocap4r2 design &mdash; ROS2 MOCAP System 1.0.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -13,10 +13,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -58,7 +59,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../build_instructions/index.html#vicon-system">Vicon System</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">MOCAP4ROS2 design</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mocap4r2 design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-design-components">Key Design Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#layer-interactions">Layer Interactions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/index.html#optitrack-system">Optitrack system</a></li>
 </ul>
@@ -90,7 +96,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">MOCAP4ROS2 design</li>
+      <li class="breadcrumb-item active">Mocap4r2 design</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -99,9 +105,49 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="mocap4ros2-design">
-<span id="design"></span><h1>MOCAP4ROS2 design<a class="headerlink" href="#mocap4ros2-design" title="Permalink to this headline"></a></h1>
-<p>To be done</p>
+  <section id="mocap4r2-design">
+<span id="design"></span><h1>Mocap4r2 design<a class="headerlink" href="#mocap4r2-design" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The MOCAP4ROS2 framework follows a modular design based on a <strong>layered architecture</strong>. This structure allows easy integration of different types of motion capture systems, supporting vision-based, IMU-based, and other movement or position capture systems. Each layer is responsible for specific functionalities, ensuring that the framework can be easily extended and applied to various motion capture applications.</p>
+<figure class="align-center">
+<img alt="MOCAP4ROS2 Layered Architecture" src="../_images/mocap4ros_arch.png" />
+</figure>
+</section>
+<section id="key-design-components">
+<h2>Key Design Components<a class="headerlink" href="#key-design-components" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Drivers Layer</strong>:
+- This layer contains the ROS 2 drivers that interface with motion capture systems, whether camera-based (like Vicon, Optitrack) or IMU-based systems.
+- Each driver publishes motion capture data in a standardized format, ensuring compatibility across different systems.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Example Message Format for Vision-based Systems:
+- Marker Message:
+    * id_type: Defines the type of identifier used.
+    * marker_index: Index of the marker.
+    * marker_name: Optional name of the marker.
+    * translation: Position in space.
+- Rigid Body Message:
+    * pose: Position and orientation of the object.
+</pre></div>
+</div>
+</li>
+<li><p><strong>Application Layer</strong>:
+- This layer provides tools for applications that make use of the data produced by the lower layers. It can be used for tasks such as visualization, control, and data collection.
+- Applications in this layer can be reused across different types of motion capture systems.</p></li>
+<li><p><strong>Manager</strong>:
+- The Manager application controls system startup, synchronization, and data logging. It ensures that multiple motion capture systems can be synchronized and their data can be recorded in a standardized format.</p></li>
+</ol>
+</section>
+<section id="layer-interactions">
+<h2>Layer Interactions<a class="headerlink" href="#layer-interactions" title="Link to this heading"></a></h2>
+<p>Each layer interacts through well-defined <strong>ROS2 topics</strong>. These topics handle the data flow between motion capture systems and applications.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Example topics:
+- /tf: Transforms between coordinate frames.
+- /markers: Marker data from vision-based systems.
+- /rigid_bodies: Position and orientation of rigid bodies.
+</pre></div>
+</div>
+</section>
 </section>
 
 

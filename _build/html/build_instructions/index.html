@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Build and Install &mdash; ROS2 MOCAP System 1.0.0 documentation</title>
@@ -13,14 +13,15 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="MOCAP4ROS2 design" href="../design/index.html" />
+    <link rel="next" title="Mocap4r2 design" href="../design/index.html" />
     <link rel="prev" title="Getting Started" href="../getting_started/index.html" />
 
 <link rel="stylesheet" href="../_static/tcs_theme.css" type="text/css" />
@@ -54,11 +55,16 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Build and Install</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#optitrack-system">Optitrack System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optitrack-system">OptiTrack System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#vicon-system">Vicon System</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../design/index.html">MOCAP4ROS2 design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design/index.html">Mocap4r2 design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../design/index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/index.html#key-design-components">Key Design Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/index.html#layer-interactions">Layer Interactions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/index.html#optitrack-system">Optitrack system</a></li>
 </ul>
@@ -100,19 +106,19 @@
            <div itemprop="articleBody">
              
   <section id="build-and-install">
-<span id="build-instructions"></span><h1>Build and Install<a class="headerlink" href="#build-and-install" title="Permalink to this headline"></a></h1>
+<span id="build-instructions"></span><h1>Build and Install<a class="headerlink" href="#build-and-install" title="Link to this heading"></a></h1>
 <section id="optitrack-system">
-<h2>Optitrack System<a class="headerlink" href="#optitrack-system" title="Permalink to this headline"></a></h2>
-<p>If you want to test the optitrack system, you should follow the following steps:</p>
+<h2>OptiTrack System<a class="headerlink" href="#optitrack-system" title="Link to this heading"></a></h2>
+<p>To test the OptiTrack system, follow these steps:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Create the src directory if you have not created it before</p>
+<p>Create the <cite>src</cite> directory if it doesn’t already exist.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws$ mkdir src &amp;&amp; cd src</span>
 </pre></div>
 </div>
 </div>
 <ol class="arabic simple">
-<li><p>Clone the following repositories</p></li>
+<li><p>Clone the required repositories:</p></li>
 </ol>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap4ros2_optitrack.git</span>
 <span class="go">mocap4ros2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap.git</span>
@@ -120,22 +126,69 @@
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li><p>Install dependencies</p></li>
+<li><p>Install the dependencies:</p></li>
 </ol>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws/src$ vcs import &lt; mocap/dependency_repos.repos</span>
 <span class="go">mocap4ros2_ws$ cd .. &amp;&amp; rosdep install --from-paths src --ignore-src -r -y</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
-<li><p>Build workspace</p></li>
+<li><p>Build the workspace:</p></li>
 </ol>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mocap4ros2_ws$ colcon build --symlink-install</span>
 </pre></div>
 </div>
 </section>
 <section id="vicon-system">
-<h2>Vicon System<a class="headerlink" href="#vicon-system" title="Permalink to this headline"></a></h2>
-<p>To be done</p>
+<h2>Vicon System<a class="headerlink" href="#vicon-system" title="Link to this heading"></a></h2>
+<p>The following steps will guide you through setting up the Vicon system:</p>
+<p>## Installation</p>
+<p>### Dependencies:</p>
+<p>The Vicon drivers for ROS2 are based on Vicon DataStream SDK 1.11.0. When building the <cite>mocap4r2_vicon_driver</cite>, the SDK is automatically downloaded and installed. The following packages are required for this process:
+- <cite>wget</cite>
+- <cite>p7zip-full</cite></p>
+<p>Additionally, this package depends on two repositories from the MOCAP4ROS2 project:
+- [mocap4r2_msgs](<a class="reference external" href="https://github.com/MOCAP4ROS2-Project/mocap4r2_msgs">https://github.com/MOCAP4ROS2-Project/mocap4r2_msgs</a>)
+- [mocap4r2_control](<a class="reference external" href="https://github.com/MOCAP4ROS2-Project/mocap">https://github.com/MOCAP4ROS2-Project/mocap</a>)</p>
+<p>A <cite>.rosinstall</cite> file is provided to manage dependencies automatically.</p>
+<p>### Installation Steps:</p>
+<p>The following commands will install the DataStream SDK, dependencies, and Vicon driver:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Install<span class="w"> </span>dependencies
+<span class="go">sudo apt-get install wget git p7zip-full</span>
+
+<span class="gp"># </span>Create<span class="w"> </span>workspace
+<span class="go">mkdir -p ~/mocap4r2_ws/src</span>
+<span class="go">cd ~/mocap4r2_ws/src</span>
+
+<span class="gp"># </span>Clone<span class="w"> </span>the<span class="w"> </span>Vicon<span class="w"> </span>repository
+<span class="go">git clone https://github.com/MOCAP4ROS2-Project/mocap4ros2_vicon.git -b rolling</span>
+
+<span class="gp"># </span>Clone<span class="w"> </span>the<span class="w"> </span>necessary<span class="w"> </span>MOCAP<span class="w"> </span>repositories
+<span class="go">cp mocap4ros2_vicon/mocap4ros2.rosinstall .rosinstall</span>
+<span class="go">wstool update</span>
+
+<span class="gp"># </span>Manage<span class="w"> </span>ROS2<span class="w"> </span>dependencies
+<span class="go">sudo rosdep init  # May not be needed if already done</span>
+<span class="go">rosdep update</span>
+<span class="go">rosdep install --from-paths . --ignore-packages-from-source --rosdistro humble -y</span>
+
+<span class="gp"># </span>Build<span class="w"> </span>everything
+<span class="go">cd ~/mocap4r2_ws/</span>
+<span class="go">colcon build --symlink-install --packages-up-to mocap4r2_vicon_driver</span>
+</pre></div>
+</div>
+<p>### Configuration:</p>
+<p>To configure the system, check the file <cite>config/mocap4r2_vicon_driver_params.yaml</cite>. Be sure to update the <cite>host_name</cite> parameter to match the IP address and port of the machine running the Vicon tracker.</p>
+<p>### Launching:</p>
+<p>After sourcing the workspace, you can launch the Vicon driver with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 launch mocap4r2_vicon_driver mocap4r2_vicon_driver_launch.py</span>
+</pre></div>
+</div>
+<p>Since the Vicon driver is a lifecycle node, you’ll need to activate it after launching:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 lifecycle set /mocap4r2_vicon_driver_node activate</span>
+</pre></div>
+</div>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a><a href="#id3"><span class="problematic" id="id4">*</span></a></p>
 </section>
 </section>
 
