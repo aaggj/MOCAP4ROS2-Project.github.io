@@ -28,14 +28,14 @@ Our current leadership team includes:
 +----------------------+----------------------------+--------------------+--------------+
 | José Miguel Guerrero | Rey Juan Carlos University | jmguerreroh_       | Dev team     |
 +----------------------+----------------------------+--------------------+--------------+
-| Alberto García       | Rey Juan Carlos University | aaggj_             | Dev team     |
-+----------------------+----------------------------+--------------------+--------------+
 | Manuel Fernández     | University of Málaga       | MFernandezCarmona_ | Dev team     |
++----------------------+----------------------------+--------------------+--------------+
+| Alberto García       | Rey Juan Carlos University | aaggj_             | Dev team     |
 +----------------------+----------------------------+--------------------+--------------+
 .. _fmrico: https://github.com/fmrico
 .. _jmguerreroh: https://github.com/jmguerreroh
-.. _aaggj: https://github.com/aaggj
 .. _MFernandezCarmona: https://github.com/MFernandezCarmona
+.. _aaggj: https://github.com/aaggj
 
 Contact
 *******
