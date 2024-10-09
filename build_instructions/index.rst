@@ -141,6 +141,7 @@ Since the Vicon driver is a lifecycle node, you'll need to activate it after lau
 Visualization
 -------------
 To visualize the data, you can use the `rviz2` tool:
+
 .. code-block:: console
 
     ros2 launch mocap4r2_marker_viz mocap4r2_marker_viz.launch.py mocap4r2_system:=vicon
