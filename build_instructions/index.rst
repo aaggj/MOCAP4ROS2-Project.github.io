@@ -28,16 +28,15 @@ To test the OptiTrack system, follow these steps:
 .. code-block:: console
 
     mocap4r2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap4ros2_optitrack.git
-    mocap4r2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap.git
-    mocap4r2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap_msgs.git
+    mocap4r2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap4r2.git
+    mocap4r2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap_interfaces.git
 
 2. Manage ROS2 dependencies:
 
 .. code-block:: console
 
-    mocap4r2_ws/src$ vcs import < mocap/dependency_repos.repos
-    sudo rosdep init # May not be needed if already done
-    rosdep update
+    mocap4r2_ws/src$ vcs import < mocap4ros2_optitrack/dependency_repos.repos
+    rosdep update # May not be needed if already done
     mocap4r2_ws$ cd .. && rosdep install --from-paths src --ignore-src -r -y
 
 3. Build the workspace:

@@ -1,102 +1,86 @@
-.. _getting_started:
-
 Getting Started
-###############
+===============================
 
-For now, the MOCAP4ROS2 packages are not available as deb packages in any ROS2 distribution, so you must install them from source. The main branches of each repository usually point to the latest distribution available on ROS2.
+Currently, the MOCAP4ROS2 packages are not available as Debian packages in any ROS 2 distribution; therefore, you must install them from source. The main branches of each repository are aligned with the Rolling distribution of ROS 2.
 
-MOCAP4ROS2 supports motion capture systems, most of which are commercial. Normally, you should now go to one of the sections that explains how to install and configure the particular system you have, but for this "getting started" section, we're going to use the driver for gazebo.
+MOCAP4ROS2 supports motion capture systems, most of which are commercial. Typically, you should proceed to one of the sections that explain how to install and configure your specific system. However, for this "getting started" section, we will use the driver for Gazebo.
 
-1. Clone in your workspace the following repositories:
+This section provides a step-by-step approach for setting up and running the MOCAP4ROS2 simulation environment. Please follow these instructions carefully to ensure a smooth setup.
 
+.. contents:: Steps
+   :local:
+   :depth: 1
+   :class: toctree
 
-.. code-block:: console
-
-    mocap4ros2_ws$ mkdir src && cd src
-    mocap4ros2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap4ros2_gazebo.git
-    mocap4ros2_ws/src$ git clone https://github.com/MOCAP4ROS2-Project/mocap.git
-
-
-2. Install dependencies
-
-.. code-block:: console
-
-    mocap4ros2_ws/src$ vcs import < mocap/dependency_repos.repos
-    mocap4ros2_ws$ cd .. && rosdep install --from-paths src --ignore-src -r -y
-
-
-3. Build workspace
+1. Clone the Repositories
+-------------------------
+Begin by cloning the necessary repositories into your workspace:
 
 .. code-block:: console
 
-    mocap4ros2_ws$ colcon build --symlink-install
+    mocap4r2_ws$ git clone https://github.com/MOCAP4ROS2-Project/mocap4ros2_gazebo.git
+    mocap4r2_ws$ git clone https://github.com/MOCAP4ROS2-Project/mocap4r2.git
 
-
-4. Run the simulator with "a marker". Remember to use the "2D Pose Estimate" tool in Rviz2 (in toolbar) to set the robot position (it is around (X: -2, Y: -0.5, Yaw: 0.0) ).
-
-.. note::
-
-    Ensure you have installed the Turtlebot3 packages to get the gazebo models
-    
-    .. code-block:: console
-    
-        sudo apt install ros-humble-turtlebot3*
-
-    Remember to correctly set the ``GAZEBO_MODEL_PATH`` in order to found the gazebo models. 
-
-    .. code-block:: console
-    
-        export TURTLEBOT3_MODEL=waffle
-        export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
-        export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/<your-user>/mocap4ros2_ws/install/gazebo_mocap_plugin/share/gazebo_mocap_plugin/models/
+2. Install Dependencies
+-----------------------
+To install all required dependencies, use the `.repos` file provided:
 
 .. code-block:: console
 
-    mocap4ros2_ws$ source install/setup.bash
-    mocap4ros2_ws$ ros2 launch gazebo_mocap_plugin tb3_simulation_launch.py
+    mocap4r2_ws$ vcs import < mocap4r2/dependency_repos.repos
+    mocap4r2_ws$ rosdep install --from-paths src --ignore-src -y
 
+3. Build the Workspace
+----------------------
+Once the repositories and dependencies are in place, build the workspace using `colcon`:
 
-.. |image1| image:: images/getting_started_4a.png
+.. code-block:: console
+
+    mocap4r2_ws$ colcon build --symlink-install
+
+4. Launch the Simulator
+-----------------------
+Source your workspace and launch the TurtleBot3 simulation with the following commands:
+
+.. code-block:: console
+
+    mocap4r2_ws$ source install/setup.bash
+    mocap4r2_ws$ ros2 launch mocap4r2_gz_plugin tb3_simulation_launch.py
+
+.. image:: images/getting_started_4a.png
    :width: 400px
    :align: middle
 
-.. |image2| image:: images/getting_started_4b.png
+.. image:: images/getting_started_4b.png
    :width: 400px
    :align: middle
 
-+----------+----------+
-| |image1| + |image2| +
-+----------+----------+
-
-Run `gzclient` if you want to see the simulation.
+To visualize the simulation in Gazebo, execute the following command:
 
 .. code-block:: console
 
-    mocap4ros2_ws$ gzclient
+    mocap4r2_ws$ gz sim
 
-.. |image3| image:: images/getting_started_4c.png
+.. image:: images/getting_started_4c.png
    :width: 500px
    :align: middle
 
-+----------+
-| |image3| +
-+----------+
+5. Run RQT Gui and Load the MocapControl Plugin
+----------------------------------------------
 
-1. Run RQT Gui and load the MocapControl plugin under "Plugins -> MOCAP4ROS2 -> Mocap Control" 
+Execute the following command to run the RQT GUI and load the MocapControl plugin:
 
 .. code-block:: console
 
     mocap4ros2_ws$ ros2 run rqt_gui rqt_gui --force-discover
 
-.. |image4| image:: images/getting_started_5.png
+.. image:: images/getting_started_5.png
    :width: 400px
    :align: middle
 
-+----------+
-| |image4| +
-+----------+
-
-6. Press the button "Start" in MocapControl and check that markers and rigid bodies are being published:
+6. Press the "Start" Button in MocapControl and Verify Marker and Rigid Body Publications
+--------------------------------------------------------------------------------------
+Press the "Start" button in MocapControl and check that markers and rigid bodies are being published:
 
 .. code-block:: console
 
@@ -106,23 +90,12 @@ Run `gzclient` if you want to see the simulation.
 
     ros2 topic echo /rigid_bodies
 
-
-7. Now, lets use an app that takes the rigid body position and orientation, and publishes a TF representing the ground truth of the robot:
+7. Execute the Ground Truth Program
+-----------------------------------
+To run the ground truth program, use the following command:
 
 .. code-block:: console
 
-    ros2 run mocap_robot_gt gt_program --ros-args -p root_frame:=map
+    mocap4r2_ws$ ros2 run mocap4r2_robot_gt gt_program --ros-args -p robot_frame:=map
 
-
-Check in Rviz how a new frame, `base_footprint_gt` exists and is the real robot position. Move the robot and see how this TF track the robot position.
-
-.. |image5| image:: images/getting_started_7.png
-   :width: 500px
-   :align: middle
-
-+----------+
-| |image5| +
-+----------+
-
-8. Press the button "Stop" in MocapControl to stop the gazebo mocap.
-
+By following these steps, you will have successfully set up the MOCAP4ROS2 simulation environment. If you encounter any issues, please consult the project's documentation or reach out for support.

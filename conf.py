@@ -30,7 +30,11 @@ sys.path.insert(0, os.path.abspath('.'))
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['breathe', 'sphinx.ext.graphviz', 'sphinxcontrib.plantuml', 'sphinx.ext.extlinks']
+extensions = ['breathe', 'sphinx.ext.graphviz', 'sphinxcontrib.plantuml', 'sphinx.ext.extlinks', 'sphinx_copybutton']
+
+copybutton_prompt_text = r"^\s*(mocap4r2(\$|/src\$))\s?"
+copybutton_remove_prompts = True
+copybutton_only_copy_prompt_lines = False
 
 graphviz_output_format='png'
 graphviz_dot_args=[

@@ -31,27 +31,23 @@ Optitrack system
 4. Launch mocap otitrack driver
 
 .. code-block:: console
-    
-    ros2 launch mocap_optitrack_driver optitrack2.launch.py
+
+    mocap4r2_ws$ source install/setup.bash
+    mocap4r2_ws$ ros2 launch mocap4r2_optitrack_driver optitrack2.launch.py
 
 5. Activate the mocap optitrack driver node
 
 .. code-block:: console
 
-    ros2 lifecycle set /mocap_optitrack_driver_node activate
+    mocap4r2_ws$ ros2 lifecycle set /mocap_optitrack_driver_node activate
 
 6. Create markers in Rviz
 
 .. code-block:: console
 
-    mocap4ros2_ws$ source install/setup.bash
-    ros2 run mocap_marker_viz mocap_marker_viz
+    mocap4r2_ws$ ros2 launch mocap4r2_marker_viz mocap4r2_marker_viz.launch.py
 
-7. Run Rviz2
-
-.. code-block:: console
-
-    rviz2 rviz2
+7. Visualize the markers in Rviz
 
 .. |image1| image:: images/RigidBody.png
    :width: 500px
