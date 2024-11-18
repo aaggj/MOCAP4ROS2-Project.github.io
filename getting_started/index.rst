@@ -47,13 +47,17 @@ Source your workspace and launch the TurtleBot3 simulation with the following co
     mocap4r2_ws$ source install/setup.bash
     mocap4r2_ws$ ros2 launch mocap4r2_gz_plugin tb3_simulation_launch.py
 
-.. image:: images/getting_started_4a.png
+.. |image1| image:: images/getting_started_4a.png
    :width: 400px
    :align: middle
 
-.. image:: images/getting_started_4b.png
+.. |image2| image:: images/getting_started_4b.png
    :width: 400px
    :align: middle
+
++----------+----------+
+| |image1| + |image2| +
++----------+----------+
 
 To visualize the simulation in Gazebo, execute the following command:
 
@@ -74,12 +78,16 @@ Execute the following command to run the RQT GUI and load the MocapControl plugi
 
     mocap4ros2_ws$ ros2 run rqt_gui rqt_gui --force-discover
 
-.. image:: images/getting_started_5.png
+.. |image4| image:: images/getting_started_5.png
    :width: 400px
    :align: middle
 
-6. Press the "Start" Button in MocapControl and Verify Marker and Rigid Body Publications
---------------------------------------------------------------------------------------
++----------+
+| |image4| +
++----------+
+
+1. Start MocapControl
+---------------------
 Press the "Start" button in MocapControl and check that markers and rigid bodies are being published:
 
 .. code-block:: console
@@ -90,7 +98,7 @@ Press the "Start" button in MocapControl and check that markers and rigid bodies
 
     ros2 topic echo /rigid_bodies
 
-7. Execute the Ground Truth Program
+1. Execute the Ground Truth Program
 -----------------------------------
 To run the ground truth program, use the following command:
 
@@ -98,4 +106,14 @@ To run the ground truth program, use the following command:
 
     mocap4r2_ws$ ros2 run mocap4r2_robot_gt gt_program --ros-args -p robot_frame:=map
 
-By following these steps, you will have successfully set up the MOCAP4ROS2 simulation environment. If you encounter any issues, please consult the project's documentation or reach out for support.
+Check in Rviz how a new frame, `base_footprint_gt` exists and is the real robot position. Move the robot and see how this TF track the robot position.
+
+.. |image5| image:: images/getting_started_7.png
+   :width: 500px
+   :align: middle
+
++----------+
+| |image5| +
++----------+
+
+Press the button "Stop" in MocapControl to stop the gazebo mocap.
