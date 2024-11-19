@@ -30,7 +30,7 @@ Our current leadership team includes:
 +----------------------+----------------------------+--------------------+--------------+
 | Manuel Fernández     | University of Málaga       | MFernandezCarmona_ | Dev team     |
 +----------------------+----------------------------+--------------------+--------------+
-| Juan C. Manzanares   | Rey Juan Carlos University | juancams_           | Dev team     |
+| Juan C. Manzanares   | Rey Juan Carlos University | juancams_          | Dev team     |
 +----------------------+----------------------------+--------------------+--------------+
 | Alberto García       | Rey Juan Carlos University | aaggj_             | Dev team     |
 +----------------------+----------------------------+--------------------+--------------+
