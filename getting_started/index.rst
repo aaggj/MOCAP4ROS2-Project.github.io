@@ -14,29 +14,31 @@ This section provides a step-by-step approach for setting up and running the MOC
 
 1. Clone the Repositories
 -------------------------
-Begin by cloning the necessary repositories into your workspace:
+Begin by cloning the necessary repositories into your ``src`` folder inside your workspace (e.g., ``mocap4r2_ws``):
 
 .. code-block:: console
 
-    mocap4r2_ws$ git clone https://github.com/MOCAP4ROS2-Project/mocap4ros2_gazebo.git
-    mocap4r2_ws$ git clone https://github.com/MOCAP4ROS2-Project/mocap4r2.git
+    git clone https://github.com/MOCAP4ROS2-Project/mocap4ros2_gazebo.git
 
-2. Install Dependencies
+1. Install Dependencies
 -----------------------
 To install all required dependencies, use the `.repos` file provided:
 
 .. code-block:: console
 
-    mocap4r2_ws$ vcs import < mocap4r2/dependency_repos.repos
-    mocap4r2_ws$ rosdep install --from-paths src --ignore-src -y
+    vcs import < mocap4ros2_gazebo/dependency_repos.repos
 
-3. Build the Workspace
+1. Build the Workspace
 ----------------------
 Once the repositories and dependencies are in place, build the workspace using `colcon`:
 
 .. code-block:: console
 
-    mocap4r2_ws$ colcon build --symlink-install
+        cd ..
+
+.. code-block:: console
+
+    colcon build --symlink-install
 
 4. Launch the Simulator
 -----------------------
@@ -44,8 +46,8 @@ Source your workspace and launch the TurtleBot3 simulation with the following co
 
 .. code-block:: console
 
-    mocap4r2_ws$ source install/setup.bash
-    mocap4r2_ws$ ros2 launch mocap4r2_gz_plugin tb3_simulation_launch.py
+    source install/setup.bash
+    ros2 launch mocap4r2_gz_plugin tb3_simulation_launch.py
 
 .. |image1| image:: images/getting_started_4a.png
    :width: 400px
@@ -63,20 +65,20 @@ To visualize the simulation in Gazebo, execute the following command:
 
 .. code-block:: console
 
-    mocap4r2_ws$ gz sim
+    gz sim
 
 .. image:: images/getting_started_4c.png
    :width: 500px
    :align: middle
 
-5. Run RQT Gui and Load the MocapControl Plugin
+1. Run RQT Gui and Load the MocapControl Plugin
 ----------------------------------------------
 
 Execute the following command to run the RQT GUI and load the MocapControl plugin:
 
 .. code-block:: console
 
-    mocap4ros2_ws$ ros2 run rqt_gui rqt_gui --force-discover
+    ros2 run rqt_gui rqt_gui --force-discover
 
 .. |image4| image:: images/getting_started_5.png
    :width: 400px
@@ -108,12 +110,5 @@ To run the ground truth program, use the following command:
 
 Check in Rviz how a new frame, `base_footprint_gt` exists and is the real robot position. Move the robot and see how this TF track the robot position.
 
-.. |image5| image:: images/getting_started_7.png
-   :width: 500px
-   :align: middle
-
-+----------+
-| |image5| +
-+----------+
 
 Press the button "Stop" in MocapControl to stop the gazebo mocap.
