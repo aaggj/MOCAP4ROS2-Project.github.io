@@ -20,7 +20,7 @@ Begin by cloning the necessary repositories into your ``src`` folder inside your
 
     git clone https://github.com/MOCAP4ROS2-Project/mocap4ros2_gazebo.git
 
-1. Install Dependencies
+2. Install Dependencies
 -----------------------
 To install all required dependencies, use the `.repos` file provided:
 
@@ -28,7 +28,7 @@ To install all required dependencies, use the `.repos` file provided:
 
     vcs import < mocap4ros2_gazebo/dependency_repos.repos
 
-1. Build the Workspace
+3. Build the Workspace
 ----------------------
 Once the repositories and dependencies are in place, build the workspace using `colcon`:
 
@@ -71,7 +71,7 @@ To visualize the simulation in Gazebo, execute the following command:
    :width: 500px
    :align: middle
 
-1. Run RQT Gui and Load the MocapControl Plugin
+5. Run RQT Gui and Load the MocapControl Plugin
 ----------------------------------------------
 
 Execute the following command to run the RQT GUI and load the MocapControl plugin:
@@ -88,7 +88,7 @@ Execute the following command to run the RQT GUI and load the MocapControl plugi
 | |image4| +
 +----------+
 
-1. Start MocapControl
+6. Start MocapControl
 ---------------------
 Press the "Start" button in MocapControl and check that markers and rigid bodies are being published:
 
@@ -100,7 +100,7 @@ Press the "Start" button in MocapControl and check that markers and rigid bodies
 
     ros2 topic echo /rigid_bodies
 
-1. Execute the Ground Truth Program
+7. Execute the Ground Truth Program
 -----------------------------------
 To run the ground truth program, use the following command:
 
