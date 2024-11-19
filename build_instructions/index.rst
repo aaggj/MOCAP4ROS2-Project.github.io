@@ -7,7 +7,7 @@ Create the `src` directory if it doesn't already exist.
 
 .. code-block:: console
 
-    mocap4r2_ws$ mkdir src && cd src
+    mkdir src && cd src
 
 
 OptiTrack System
