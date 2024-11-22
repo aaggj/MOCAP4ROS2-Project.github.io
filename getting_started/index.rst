@@ -23,24 +23,40 @@ To install all required dependencies, use the `.repos` file provided:
 
     vcs import < mocap4ros2_gazebo/dependency_repos.repos
 
+Make sure you are updated:
+
 .. code-block:: console
 
-    rosdep update # May not be needed if already done
+    rosdep update
+    sudo apt-get update
+
+.. code-block:: console
+      
     cd .. && rosdep install --from-paths src --ignore-src -r -y
 
 3. Build the Workspace
+
+Source your ROS 2 installation
+
+.. code-block:: console
+
+    source /opt/ros/jazzy/setup.bash
 
 Once the repositories and dependencies are in place, build the workspace using `colcon`:
 
 .. code-block:: console
 
-        cd ..
+    colcon build --symlink-install
+
+4. Install Nav2 Bringup
+
+To install the Nav2 Bringup package, use the following command:
 
 .. code-block:: console
 
-    colcon build --symlink-install
+    sudo apt-get install ros-jazzy-nav2-bringup
 
-4. Launch the Simulator  with "a marker". Remember to use the "2D Pose Estimate" tool in Rviz2 (in toolbar) to set the robot position (it is around (X: -2, Y: -0.5, Yaw: 0.0) ).
+5. Launch the Simulator  with "a marker". Remember to use the "2D Pose Estimate" tool in Rviz2 (in toolbar) to set the robot position (it is around (X: -2, Y: -0.5, Yaw: 0.0) ).
 
 Source your workspace and launch the TurtleBot3 simulation with the following commands:
 
@@ -49,11 +65,11 @@ Source your workspace and launch the TurtleBot3 simulation with the following co
     source install/setup.bash
     ros2 launch mocap4r2_gz_plugin tb3_simulation_launch.py headless:=False
 
-.. |image1| image:: images/getting_started_4a.png
+.. |image1| image:: images/getting_started_4_a.png
    :width: 400px
    :align: middle
 
-.. |image2| image:: images/getting_started_4b.png
+.. |image2| image:: images/getting_started_4_b.png
    :width: 400px
    :align: middle
 
@@ -71,8 +87,8 @@ This will automatically open Gazebo:
 | |image3| +
 +----------+
 
-5. Run RQT Gui and Load the MocapControl Plugin
-----------------------------------------------
+6. Run RQT Gui and Load the MocapControl Plugin
+
 
 Execute the following command to run the RQT GUI and load the MocapControl plugin:
 
@@ -88,8 +104,8 @@ Execute the following command to run the RQT GUI and load the MocapControl plugi
 | |image4| +
 +----------+
 
-6. Start MocapControl
----------------------
+7. Start MocapControl
+
 Press the "Start" button in MocapControl and check that markers and rigid bodies are being published:
 
 .. code-block:: console
@@ -100,13 +116,13 @@ Press the "Start" button in MocapControl and check that markers and rigid bodies
 
     ros2 topic echo /rigid_bodies
 
-7. Execute the Ground Truth Program
------------------------------------
+8. Execute the Ground Truth Program
+
 To run the ground truth program, use the following command:
 
 .. code-block:: console
 
-    ros2 run mocap4r2_robot_gt gt_program --ros-args -p robot_frame:=map
+    ros2 run mocap4r2_robot_gt gt_program
 
 Check in Rviz how a new frame, `base_footprint_gt` exists and it is the real robot position. Move the robot and see how this TF track the robot position.
 
