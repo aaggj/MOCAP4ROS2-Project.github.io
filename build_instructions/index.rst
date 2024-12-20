@@ -20,16 +20,16 @@ To test the OptiTrack system, follow these steps:
     The OptiTrack drivers for ROS2 are based on the NatNet SDK 3.1.0. When building the `mocap4ros2_optitrack` package, the SDK is automatically downloaded and installed.
 
     Additionally, this package depends on two repositories from the MOCAP4ROS2 project:
-    - [mocap_interfaces](https://github.com/MOCAP4ROS2-Project/mocap_interfaces)
+    - [mocap4r2_msgs](https://github.com/MOCAP4ROS2-Project/mocap4r2_msgs)
     - [mocap4r2_control](https://github.com/MOCAP4ROS2-Project/mocap4r2)
 
 1. Clone the required repositories into your ``src`` folder inside your workspace (e.g., ``mocap4r2_ws``):
 
 .. code-block:: console
 
-    git clone -b rep-mocap https://github.com/MOCAP4ROS2-Project/mocap4ros2_optitrack.git
+    git clone https://github.com/MOCAP4ROS2-Project/mocap4ros2_optitrack.git
 
-1. Manage ROS2 dependencies:
+2. Manage ROS2 dependencies:
 
 .. code-block:: console
 
@@ -98,19 +98,18 @@ To test the Vicon system, follow these steps:
     cp mocap4ros2_vicon/mocap4ros2.rosinstall .rosinstall
     wstool update
 
-3. Manage ROS2 dependencies:
+3. Manage ROS2 dependencies in your mocap4r2_ws:
 
 .. code-block:: console
 
-    mocap4r2_ws$ sudo rosdep init  # May not be needed if already done
+    sudo rosdep init  # May not be needed if already done
     rosdep update
     rosdep install --from-paths src --ignore-src -r -y
 
-4. Build the workspace:
+4. Build the workspace (be sure to be in the root of your workspace):
 
 .. code-block:: console
 
-    cd ~/mocap4r2_ws/
     colcon build --symlink-install --packages-up-to mocap4r2_vicon_driver
 
 
